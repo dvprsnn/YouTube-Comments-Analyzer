@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Comment Sentiment Analysis</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cc99ff;
+            padding-top: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color:  #ffe6ff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1{
+            font-size: 26px;
+            color: #9d2828;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .sentiment-count {
+            font-size: 18px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .sentiment-list {
+            margin-top: 20px;
+        }
+
+        .comment {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background-color: #ecf0f1;
+        }
+
+        .positive {
+            background-color: #27ae60;
+            color: white;
+        }
+
+        .negative {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .neutral {
+            background-color:  #ccccff;
+            color: rgb(2, 2, 2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>The Analyzed Result of the Given YouTube Video</h1>
+
+        <div class="sentiment-count">
+            <p><strong>Positive Comments Count:</strong> {{ video_responses.Positive }}</p>
+            <p><strong>Negative Comments Count:</strong> {{ video_responses.Negative }}</p>
+            <p><strong>Neutral Comments Count:</strong> {{ video_responses.Neutral }}</p>
+        </div>
+
+
+        <h2>Here are the Comments of the Given Video</h2>
+        <div class="sentiment-list">
+            {% for comment in comments %}
+                <div class="comment {{ comment.emotion|lower }}">
+                    <strong>Comment:</strong> {{ comment.comment_desc }}
+                    <br><strong>Sentiment:</strong> {{ comment.emotion }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+ 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

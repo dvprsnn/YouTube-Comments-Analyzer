@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Comment Analyzer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #FF6F61, #FF9E2C); 
+        }
+        .form-container {
+            width: 50%;
+            background: linear-gradient(to bottom right, rgba(255, 106, 94, 0.7), rgba(76, 255, 44, 0.7)); 
+            background-size: cover;
+            height: 100%;
+            padding: 30px;
+            color: #fff;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        .container {
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        h1 {
+            font-size: calc(1.5rem + 1vw);
+            color: #1a0b4b; 
+            font-weight: bold;
+        }
+        p {
+            color: #f6fb67; 
+            font-size: calc(1rem + 0.5vw); 
+            margin-bottom: 30px;
+        }
+        .btn-lg {
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            border-radius: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-info {
+            background: linear-gradient(to right, #1E90FF, #00BFFF); 
+            border: none;
+            color: #fff;
+        }
+        .btn-success {
+            background: linear-gradient(to right, #32CD32, #228B22); 
+            border: none;
+            color: #fff;
+        }
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05); 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+            transition: all 0.3s ease;
+        }
+        .image-side {
+            width: 40%;
+            border-radius: 20px;
+            margin-top:70px ;
+            background-image: url('https://images.unsplash.com/photo-1523365280197-f1783db9fe62?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D');
+            background-size: cover;
+            background-position: center;
+            height: 80%;
+        }
+        .form-side {
+            width: 50%;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-side">
+        <div class="container">
+            <h1>Welcome to the YouTube Comment Analyzer</h1>
+            <p>Analyze sentiments and explore insights from YouTube comments!</p>
+            <a href="{% url 'form' %}" class="btn btn-info btn-lg mb-3">Click Here To Start</a>
+            <a href="{% url 'get_records' %}" class="btn btn-success btn-lg mb-3">View History</a>
+        </div>
+    </div>
+    <div class="image-side"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

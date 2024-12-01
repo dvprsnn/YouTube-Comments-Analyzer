@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Videos and Their Result Lists</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #c7ddf3;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            background-color: #713f83;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #555;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        a {
+            color: #ff5722;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #e91e63;
+        }
+        ol {
+            list-style-type: none;
+            padding-left: 0;
+            width: 80%;
+        }
+        li {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        li:hover {
+            transform: translateY(-5px);
+        }
+        .video-info {
+            background-color: #e7cbf4;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        .content {
+            font-size: 1.05em;
+            color: #444;
+        }
+        .footer-link {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Past Videos and Their Result Lists</h1>
+
+<ol>
+    {% for video in videos %}
+        <li>
+            <div class="video-info">
+                <h2>Video Link: <a href="{{ video.link }}" target="_blank">{{ video.link }}</a></h2>
+                <p><strong>Sentiment Analysis:</strong> <span class="content">{{ video.content }}</span></p>
+                <p><strong>Video Contents:</strong> <span class="content">{{ video.video_contents }}</span></p>
+            </div>
+        </li>
+    {% endfor %}
+</ol>
+
+<div class="footer-link">
+    <h1><a href="{{ api }}" target="_blank">Click here</a> for new video analysis</h1>
+</div>
+
+</body>
+</html>
